@@ -5,14 +5,15 @@ const {
 
 export default Ember.Route.extend({
   ajax: Ember.inject.service('ajax'),
-    queryParams: {
-    category: {
+
+  queryParams: {
+    change: {
       refreshModel: true
     }
   },
+
   model: function(params) {
-    // return this.store.find('screening');
-    var attributes = {};
+    let attributes = {};
     if(this.controller && this.controller.attributes){
       attributes['attributes'] = this.controller.get('attributes');
     }

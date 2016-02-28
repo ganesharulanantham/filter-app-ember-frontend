@@ -19,7 +19,7 @@
  <tbody>
    {{#each model.screenings as |screen index|}}
      <tr>
-       <th scope="row">{{index}}</th>
+       <th scope="row">{{increment index}}</th>
        <td>{{screen.title}}</td>
        <td>{{screen.locations}}</td>
        <td>{{screen.release_year}}</td>

@@ -4,21 +4,31 @@ const{
 } = Ember;
 
 export default Ember.Controller.extend({
-  queryParams: ['category'],
-  category: false,
+  queryParams: ['change'],
+  change: false,
   allFields: computed({
     get(){
       return ['title', 'locations', 'release_year', 'production_company', 'director', 'distributor', 'writer', 'actor_1', 'actor_2', 'actor_3'];
     }
   }),
+  resetValue: false,
+
   actions: {
+
     attributeChange: function(attribute) {
-      var now = this.get('attributes') || {};
-      now[attribute['type']] = attribute[attribute['type']];
-      this.set('attributes', now);
+      let currentAttribute = this.get('attributes') || {};
+      currentAttribute[attribute['type']] = attribute[attribute['type']];
+      this.set('attributes', currentAttribute);
     },
-    reload: function() {
-      this.set('category', !this.get('category'));
+
+    applyFilter: function() {
+      this.set('change', !this.get('change'));
+    },
+
+    resetFilter: function() {
+      this.set('attributes', {});
+      this.set('resetValue', !this.get('resetValue'));
+      this.set('change', !this.get('change'));
     }
   },
 });

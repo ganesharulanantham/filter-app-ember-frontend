@@ -1,13 +1,19 @@
-  <button {{action 'reload'}}>Filter</button>
 <div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Screening</div>
+  <div class="panel-heading">List of films screened in San Francisco</div>
 </div>
-<div class="col-sm-3 col-md-9" style="overflow-x: scroll;">
+
+<div class="col-sm-3 col-md-9 overflow-table">
+  {{#if model}}
     {{screening-table store=store model=model}}
+  {{else}}
+    No information found
+  {{/if}}
 </div>
+
 <div class="col-sm-9 col-md-3">
-  {{#each field in allFields}}
-    {{filter-element type=field optionLabelPath='text'}}
-  {{/each}}
+  <button class="filter-btn"{{action 'applyFilter'}}>Apply Filter</button>
+  <button {{action 'resetFilter'}}>Reset</button>
+    {{#each field in allFields}}
+      {{filter-element type=field optionLabelPath='text' resetValue=resetValue}}
+    {{/each}}
 </div>

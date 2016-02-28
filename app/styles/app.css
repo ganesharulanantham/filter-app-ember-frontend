@@ -1,0 +1,15 @@
+.select2-custom{
+  padding: 4px 3px;
+  border: none;
+  box-shadow: none;
+}
+
+.overflow-table{
+  overflow-x: scroll;
+  overflow-y: scroll;
+  max-height: 600px;
+}
+
+.filter-btn{
+  width: 60%;
+}
