@@ -12,6 +12,7 @@ export default Ember.Controller.extend({
     }
   }),
   resetValue: false,
+  showMap: false,
 
   actions: {
 
@@ -29,6 +30,9 @@ export default Ember.Controller.extend({
       this.set('attributes', {});
       this.set('resetValue', !this.get('resetValue'));
       this.set('change', !this.get('change'));
+    },
+    showMap: function () {
+      this.set('showMap', !this.get('showMap'));
     }
   },
 });

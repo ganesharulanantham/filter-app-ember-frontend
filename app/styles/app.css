@@ -13,3 +13,11 @@
 .filter-btn{
   width: 60%;
 }
+
+/*Google maps*/
+.map-canvas {
+  /*width: 600px;
+  height: 400px;*/
+  width: 100%;
+  height: 600px;
+}

@@ -1,18 +1,28 @@
 <div class="panel panel-default">
   <div class="panel-heading">List of films screened in San Francisco</div>
 </div>
+{{#if showMap}}
+  {{display-map class="col-sm-3 col-md-9 overflow-table" mapModel=model.screenings}}
+{{else}}
+  <div class="col-sm-3 col-md-9 overflow-table">
+    {{#if model}}
+      {{screening-table store=store model=model}}
+    {{else}}
+      No information found
+    {{/if}}
+  </div>
+{{/if}}
 
-<div class="col-sm-3 col-md-9 overflow-table">
-  {{#if model}}
-    {{screening-table store=store model=model}}
-  {{else}}
-    No information found
-  {{/if}}
-</div>
+
 
 <div class="col-sm-9 col-md-3">
-  <button class="filter-btn"{{action 'applyFilter'}}>Apply Filter</button>
+  <button {{action 'applyFilter'}}>Apply Filter</button>
   <button {{action 'resetFilter'}}>Reset</button>
+    {{#if showMap}}
+      <button {{action 'showMap'}}>Hide Map</button>
+    {{else}}
+      <button {{action 'showMap'}}>Show Map</button>
+    {{/if}}
     {{#each field in allFields}}
       {{filter-element type=field optionLabelPath='text' resetValue=resetValue}}
     {{/each}}
