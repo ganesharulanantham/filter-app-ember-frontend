@@ -7,6 +7,8 @@ const{
 export default Ember.Component.extend({
   ajax: Ember.inject.service('ajax'),
   attributeChange: 'attributeChange',
+  condition: 'and',
+  operator: 'is_equal_to',
 
   lable: computed({
     get(){
@@ -38,7 +40,7 @@ export default Ember.Component.extend({
 
   valueChange: function() {
     var obj = {};
-    obj[this.get('type')] = {"operator": 'is_equal_to', "value": this.get('value.text')};
+    obj[this.get('type')] = {"operator": this.get('operator'), "value": this.get('value.text'), "condition": this.get('condition') };
     obj['type'] = this.get('type');
     this.sendAction('attributeChange', obj);
   }.observes('value'),
