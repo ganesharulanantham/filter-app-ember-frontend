@@ -1,0 +1,37 @@
+<!-- Table -->
+<table class="table">
+ <thead>
+   <tr>
+     <th>#</th>
+     <th>Title</th>
+     <th>Locations</th>
+     <th>Release year</th>
+     <th>Production Company</th>
+     <th>Director</th>
+     <th>Distributor</th>
+     <th>Writer</th>
+     <th>Fun Facts</th>
+     <th>Actor 1</th>
+     <th>Actor 2</th>
+     <th>Actor 3</th>
+   </tr>
+ </thead>
+ <tbody>
+   {{#each model.screenings as |screen index|}}
+     <tr>
+       <th scope="row">{{index}}</th>
+       <td>{{screen.title}}</td>
+       <td>{{screen.locations}}</td>
+       <td>{{screen.release_year}}</td>
+       <td>{{screen.production_company}}</td>
+       <td>{{screen.director}}</td>
+       <td>{{screen.distributor}}</td>
+       <td>{{screen.writer}}</td>
+       <td>{{screen.fun_facts}}</td>
+       <td>{{screen.actor_1}}</td>
+       <td>{{screen.actor_2}}</td>
+       <td>{{screen.actor_3}}</td>
+     </tr>
+  {{/each}}
+ </tbody>
+</table>

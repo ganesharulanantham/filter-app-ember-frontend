@@ -1,0 +1,13 @@
+  <button {{action 'reload'}}>Filter</button>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Screening</div>
+</div>
+<div class="col-sm-3 col-md-9" style="overflow-x: scroll;">
+    {{screening-table store=store model=model}}
+</div>
+<div class="col-sm-9 col-md-3">
+  {{#each field in allFields}}
+    {{filter-element type=field optionLabelPath='text'}}
+  {{/each}}
+</div>
