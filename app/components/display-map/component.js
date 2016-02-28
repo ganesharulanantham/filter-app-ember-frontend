@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   centerLng: -122.41962339999998,
   model: computed('mapModel.@each', {
     get(){
-      return this.mapModel.map(function(e){ return { title: e.locations, description: e.title, lng: e.longitude, lat: e.latitude, body: e.title, isInfoWindowVisible: true}})
+      return this.mapModel.map(function(e){ return { title: e.locations, description: e.title, lng: e.longitude, lat: e.latitude, body: e.title, isInfoWindowVisible: true}});
     }
   })
   // model: computed({
